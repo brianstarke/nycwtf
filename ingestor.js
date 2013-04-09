@@ -10,6 +10,7 @@ var twit = new twitter({
 
 var users = [132235973, 487198119]
 
+console.log("Starting stream...");
 twit.stream('statuses/filter', {'follow': users.toString()}, function (stream) {
     stream.on('data', function (data) {
         console.log(data);
