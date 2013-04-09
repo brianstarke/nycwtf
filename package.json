@@ -1,0 +1,11 @@
+{
+    "name": "nycwtf",
+    "version": "0.0.1",
+    "dependencies": {
+        "geocoder":"0.1.0",
+        "ntwitter": "0.5.0"
+    },
+    "engines": {
+        "node": ">=0.8.0"
+    }
+}
