@@ -5,6 +5,7 @@ var testText1 = "Staten Island: Box #1758 Brielle Ave &amp; Walcott Ave. All han
 var testText2 = "Queens: 247-14 South Conduit Ave NYPD units in foot pursuit after a perp wanted for armed robbery. ESU Aviation and K-9 units requested. NY02";
 var testText3 = "Bronx: 2 Castle Hill Ave Behind YMCA FDNY reporting a DOA floater that washed up on shore. NYPD ESU & Harbor responding.";
 var testText4 = "Staten Island: Verrazano-Narrows Bridge Lower level. FDNY on scene of a fully involved car fire. Expect heavy delays in the area.";
+var testText5 = "Brooklyn: 3020 Surf Ave Crime scene being established in regards to a male shot, NYPD advising 1 perp in custody looking for another one.";
 
 describe('TweetParser', function () {
     describe('#parseCountyFromText', function () {
@@ -29,6 +30,7 @@ describe('TweetParser', function () {
             assert.equal('247-14 South Conduit Ave, Queens, NY', tweetParser.parseTextForAddress(testText2));
             assert.equal('2 Castle Hill Ave, Bronx, NY', tweetParser.parseTextForAddress(testText3));
             assert.equal('Verrazano-Narrows Bridge, Staten Island, NY', tweetParser.parseTextForAddress(testText4));
+            assert.equal('3020 Surf Ave, Brooklyn, NY', tweetParser.parseTextForAddress(testText5));
         });
     });
 
@@ -51,6 +53,13 @@ describe('TweetParser', function () {
             setTimeout(done, 60000);
             tweetParser.parseGeoFromTweet(testText4, function (err, data) {
                 assert.equal('Verrazano-Narrows Bridge, Staten Island, NY 10305, USA', data.results[0].formatted_address);
+                done();
+            });
+        });
+        it('should successfully geocode a tweet from the fifth example', function (done) {
+            setTimeout(done, 60000);
+            tweetParser.parseGeoFromTweet(testText5, function (err, data) {
+                assert.equal('3020 Surf Avenue, Brooklyn, NY 11224, USA', data.results[0].formatted_address);
                 done();
             });
         });
