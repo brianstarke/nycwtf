@@ -1,1 +1,1 @@
-web: node ingestor.js
+web: node app.js
