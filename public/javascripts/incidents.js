@@ -27,10 +27,12 @@ function addIncidentToMap(incident) {
     var contentString = '<div id="bodyContent">' +
         '<p>' + incident.description + '</p>' +
         '<p>' + incident.createdAt + '</p>' +
+        '<p>Source <b>' + incident.source + '</b></p>' +
         '</div>';
 
     var infowindow = new google.maps.InfoWindow({
-        content: contentString
+        content: contentString,
+        maxWidth: 260
     });
 
     var marker = new google.maps.Marker({

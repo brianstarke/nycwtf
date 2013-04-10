@@ -20,12 +20,12 @@ twit.showUser(132235973, function (user) {
         console.log(d);
 
         var i = new models.incident();
-        i.description = user.status.text;
+        i.description = tweetParser.parseDescription(user.status.text);
         i.source = user.name;
         i.formattedAddress = d.results[0].formatted_address;
         i.geoLat = d.results[0].geometry.location.lat;
         i.geoLng = d.results[0].geometry.location.lng;
-        i.save();
+        //i.save();
         console.log(i);
         console.log("Saved a new incident");
     });
