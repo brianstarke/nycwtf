@@ -25,7 +25,7 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 var TwitterIngestor = require('./lib/twitterIngestor');
-TwitterIngestor.start();
+//TwitterIngestor.start();
 
 app.get('/', routes.index);
 app.get('/incidents', routes.incidents);
