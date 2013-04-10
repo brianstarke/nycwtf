@@ -1,5 +1,7 @@
 extends layout
 
-each incident in incidents
-    li= incident.description
-    li= incident.formattedAddress
+block content
+  each incident in incidents
+    p
+      .line #{incident.description}
+      .line #{incident.formattedAddress}
