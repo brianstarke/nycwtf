@@ -12,7 +12,7 @@ var twit = new twitter({
 // Users we are going to follow
 var users = [132235973, 487198119]
 
-twit.showUser(132235973, function (user) {
+twit.showUser(487198119, function (user) {
 
     console.log(user);
 
