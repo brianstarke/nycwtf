@@ -23,10 +23,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // development only
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
-} else {
-    var TwitterIngestor = require('./lib/twitterIngestor');
-    TwitterIngestor.start();
 }
+var TwitterIngestor = require('./lib/twitterIngestor');
+TwitterIngestor.start();
 
 app.get('/', routes.index);
 app.get('/incidents', routes.incidents);
