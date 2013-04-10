@@ -23,13 +23,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 // development only
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
+} else {
+    var TwitterIngestor = require('./lib/twitterIngestor');
+    TwitterIngestor.start();
 }
 
-app.get('/', routes.incidents);
+app.get('/', routes.index);
+app.get('/incidents', routes.incidents);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
-var TwitterIngestor = require('./lib/twitterIngestor');
-TwitterIngestor.start();
+
