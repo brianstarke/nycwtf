@@ -13,8 +13,10 @@ var twit = new twitter({
 var users = [132235973, 487198119]
 
 twit.showUser(132235973, function (user) {
-    console.log(user);
-    console.log(user.status);
 
-    console.log(tweetParser.parseGeoFromTweet(user.status.text));
+    console.log(user.status.text);
+
+    tweetParser.parseGeoFromTweet(user.status.text, function(e,d){
+        console.log(d);
+    });
 });

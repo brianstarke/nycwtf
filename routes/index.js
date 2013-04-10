@@ -1,4 +1,4 @@
-var models = require('./lib/models');
+var models = require('../lib/models');
 
 /*
  * GET list of all incidents.
